@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: var(--cor-base);
+}
+
+/* Tudo acima são configurações gerais, o qye todo atributo vai ter e etc*/
+
+:root {
+  --cor-base: #7a2e1d;
+  --cor-placehoder: #7a2e1d70;
+  --fundo-input: #ebe6e6;
+}
+
+/* Isso a qui acima é meio que uma varivel que guarda as cores que eu escolhi com nomes */
+
+input::placeholder {
+  /* Nome dentro da caixa de input */
+  color: var(--cor-placehoder);
+  font-size: 1rem;
+}
+
+.container {
+  /* Container principal */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.direita {
+  /* Container do lado direito */
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.esquerda {
+  /* Container do lado esquerdo */
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.areaLogin,
+.areaCadastro {
+  /* Container dos formularios */
+  padding: 20px 15px;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputarea {
+  /* Container dos inputs */
+  gap: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+input {
+  /* Estilo dos inputs */
+  padding: 1.5rem;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--fundo-input);
+  box-shadow: 5px 5px 10px #0000001e;
+  font-size: 1rem;
+}
+
+input:focus {
+  /* Quando clicar no input */
+  outline: solid 2px var(--cor-base);
+}
+
+h1 {
+  font-weight: 300;
+}
+
+.titulo {
+  display: flex;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.btosLines {
+  display: flex;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+button {
+  padding: 1.5rem;
+  border-radius: 20px;
+  border: none;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  background-color: var(--cor-base);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px #0000001e;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+button:hover {
+  transform: scale(
+    0.95
+  ); /* Efeito de diminuir o botão quando passar o mouse, feito com tranform para ficar mais facil de animar depois. */
+  background-color: #a5361d;
+}
+
+#RegistrarBtn,
+#LoginBtn {
+  font-size: 10pt; /* Tamanho da fonte */
+  text-decoration: underline; /* Sublinha o texto */
+  cursor: pointer; /* Muda o cursor para indicar que é clicavel */
+}
+
+label {
+  font-size: 0.85rem; /* Tamanho da fonte em rem para ajudar na responsividade */
+  font-weight: 700; /* Grossura da fonte */
+}
+
+.foto {
+  /* Onde vai ficar guardada as duas imagens que aparecem acima da tela e indo para direita e esquerda */
+  will-change: auto; /* Para melhorar a performance da animação */
+  transition: all 0.8s ease-in-out; /* Transição suave */
+  position: fixed; /* Fixa a imagem na tela */
+  z-index: 5; /* Fica na frente de tudo */
+  width: 50vw; /* Ocupa metade da tela */
+  height: 100vh; /* Pegar toda tela de cima a baixo */
+  right: 0; /* Fica do lado direito ! Precisa ter para que eu possa animar suavemnete com js ! */
+  background-image: url(Imgs/fundo.png); /* Imagem de fundo */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Não repete a imagem */
+  background-size: cover; /* Cobre todo o container */
+}

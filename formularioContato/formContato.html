@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Formulário de Contato</h1>
+    <!-- Cabeçalho principal -->
+
+    <!-- Formulário que envia os dados para o serviço formsubmit.co -->
+    <!-- Para onde os dados serão enviados -->
+    <form
+      action="https://formsubmit.co/email-artesães@email.com"
+      method="POST"
+      class="form"
+    >
+      <!-- Campo para o nome -->
+      <label for="name">Nome</label>
+      <input type="text" name="name" id="name" required />
+
+      <!-- Campo para e-mail -->
+      <label for="email">E-mail</label>
+      <input type="email" name="email" id="email" required />
+
+      <!-- Campo para WhatsApp -->
+      <label for="email">Whatsapp</label>
+      <input type="whatsapp" name="whatsapp" id="whatsapp" required />
+
+      <!-- Campo para mensagem -->
+      <label for="message">Mensagem</label>
+      <textarea name="message" id="message" required></textarea>
+
+      <!-- Desativa captcha automático do formsubmit -->
+      <input type="hidden" name="_captcha" value="false" />
+
+      <!-- Define a página de redirecionamento após o envio -->
+      <input
+        type="hidden"
+        name="_next"
+        value="https://dominio-artesaes/obrigado.html"
+      />
+
+      <!-- Botão de envio -->
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>

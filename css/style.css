@@ -1,9 +1,506 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/*Parte do CSS feita por: Juliana Mendes */
+/* Reset Unificado */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+/* Cores principais do site */
+/* Aqui defini as cores que vamos usar no site todo. Se precisar mudar alguma cor depois, é só mudar aqui
+ */
+:root {
+  /*Parte do :root feita por: Juliana Mendes */
+  --brand-color: #5C3A2C;
+  /* Marrom escuro */
+  --main-bg: #F5EFE9;
+  /* Bege claro */
+  --text-color: #333;
+  /* Cinza escuro para o texto */
+  --highlight-color: #8C5E47;
+  /* Cor de destaque (marrom médio)*/
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  /* Deixa uma sombra visível */
+  /*Parte do :root feita por: Evanilson Gabriel */
+  --cor-primaria: var(--brand-color);
+  --cor-secundaria: var(--highlight-color);
+  --cor-branco: white;
+  --transicao: all 0.3s ease;
+
+  --cor-base: #7a2e1d;
+  --cor-placehoder: #7a2e1d70;
+  --fundo-input: #ebe6e6;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  /* Cor do texto */
+  background-color: var(--main-bg);
+  /* Cor de fundo */
+  line-height: 1.6;
+  /* Espaçamento entre linhas */
+  margin: 0;
+  /* Remove margens padrão */
+  padding: 0;
+}
+
+/* Onde o conteúdo fica*/
+.container.main-grid {
+  max-width: 1100px;
+  /* Largura máxima do contêiner */
+  margin: 0 auto;
+  /* Centraliza o contêiner */
+  padding: 20px;
+  /* Deixa um espaçamento interno */
+  box-sizing: border-box;
+  /* Faz com que o padding não adicione uma largura extra */
+}
+
+.main-grid {
+  display: block;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.sidebar {
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* caixas de conteúdo (adaptei ao layout que fizeram) */
+.content,
+.card,
+.painel {
+  background-color: white;
+  /* Fundo branco */
+  padding: 40px;
+  /* Espaçamento interno */
+  border-radius: 10px;
+  /* Cantos arredondados */
+  box-shadow: 0 5px 15px var(--shadow-color);
+  /* Deixa uma sombra suave */
+  margin-bottom: 40px;
+  /* Espaço entre as caixas */
+  text-align: center;
+  /* Centraliza o texto e os títulos dentro da seção */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Efeito suave de movimento */
+}
+
+/* Efeito ao passar o mouse na caixa */
+.content:hover,
+.card:hover,
+.painel:hover {
+  transform: translateY(-6px);
+  /* Efeito de "levantar" a seção ao passar o mouse */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos do Cabeçalho e Rodapé */
+header, footer {
+  background-color: var(--brand-color);
+  /* Fundo marrom escuro */
+  color: white;
+  /* Texto branco */
+  padding: 20px 0;
+}
+
+/* Layout flexível para o cabeçalho */
+header .container {
+  display: flex;
+  justify-content: space-between;
+  /* Espaço entre o título e a navegação */
+  align-items: center;
+  /* Alinha verticalmente os itens do cabeçalho */
+}
+
+/* Estilos para links de navegação no cabeçalho */
+header nav a {
+  color: white; /* Links brancos */
+  text-decoration: none; /* Remove o sublinhado */
+  margin-left: 25px; /* Espaço entre os links */
+  font-weight: bold; /* Deixa os links em negrito */
+  transition: color 0.3s; /* Transição suave para a cor ao passar o mouse */
+}
+
+/* Efeito quando o mouse passa no link do cabeçalho */
+header nav a:hover {
+  color: var(--highlight-color); /* Muda a cor ao passar o mouse */
+}
+
+/* Estilo de textos*/
+h1, h2, h3 {
+  color: var(--brand-color);
+  /* Cor dos títulos */
+  margin-bottom: 0.5em;
+  /* Espaço abaixo dos títulos */
+  text-align: center;
+  /* Centraliza os títulos */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  /* Deixa uma sombra sutil para os títulos */
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p:not(.cta-row) /*Essa parte aqui foi feita com base no layout que fizeram */ {
+  font-size: 1em; /* Tamanho do texto */
+  line-height: 1.8; /* Espaçamento entre as linhas */
+  max-width: 700px; /* Deixa uma largura máxima */
+  margin: 0 auto 1.5em auto; /* Centraliza e dá espaço embaixo */
+}
+
+.cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Estilos para textos em negrito e itálico */
+strong, b {
+  color: var(--brand-color); /* Negrito com a cor principal */
+}
+
+/* Itálico */
+em,
+i {
+  color: var(--text-color); /* Itálico com a cor do texto */
+}
+
+/* Estilo para citações */
+blockquote {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--highlight-color);
+  border-left: 4px solid var(--highlight-color); /* Linha na lateral */
+  padding-left: 20px;
+  margin: 30px auto;
+  max-width: 700px;
+  line-height: 1.5;
+}
+
+/* linha divisória */
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+  margin: 40px auto;
+  max-width: 50%;
+}
+
+/* estilo das imagens */
+.img-destaque {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px var(--shadow-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Quando o mouse passa na imagem de destaque */
+.img-destaque:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+/* Estilo para galeria de fotos */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Estilo para as fotos dentro da galeria */
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: transform 0.3s;
+}
+
+/* efeito de zoom quando o mouse passa na foto da galeria */
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* estilo de botoões */
+.btn {
+  background-color: var(--brand-color);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+/* quando o mouse passa no botão */
+.btn:hover {
+  background-color: var(--highlight-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px var(--shadow-color);
+}
+
+/* Estilo de formulários geral (parte Juliana) */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+/* Estilo para o texto que fica dentro do campo (placeholder) */
+::placeholder {
+  color: #999;
+  /* Cor cinza clara */
+  font-style: italic;
+}
+
+/* efeito quando a pessoa clica no campo */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--brand-color);
+  box-shadow: 0 0 3px rgba(92, 58, 44, 0.2);
+}
+
+/* Estilo para os nomes dos campos (rótulos) */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+/* quando o mouse pssa no nome do campo */
+label:hover {
+  color: var(--highlight-color);
+  cursor: pointer;
+}
+
+/* Estilo para listas */
+ul, ol {
+  margin: 0 0 20px 20px;
+  padding: 0;
+}
+
+/* Estilo para itens de lista */
+li {
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+
+/*Parte do CSS feita por: Evanilson Gabriel */
+
+/* ---------- REGRAS GERAIS ---------- */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transicao);
+}
+
+a:hover {
+  color: var(--highlight-color);
+}
+
+/* ---------- CABEÇALHO ---------- */
+header {
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav ul li a {
+  position: relative;
+  font-weight: 500;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--cor-branco);
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+  display: grid;
+  place-items: center;
+  height: 80vh;
+  text-align: center;
+  background: var(--main-bg);
+  padding: 2rem;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  animation: slideDown 1s ease forwards;
+}
+
+.hero p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  background: var(--brand-color);
+  color: var(--cor-branco);
+  border-radius: 50px;
+  font-weight: bold;
+  transition: var(--transicao);
+}
+
+.btn:hover {
+  background: var(--cor-secundaria);
+  transform: translateY(-3px);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- SEÇÃO DE SERVIÇOS ---------- */
+.servicos {
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--cor-branco);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: var(--transicao);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--cor-secundaria) 0%, transparent 70%);
+  opacity: 0;
+  transition: var(--transicao);
+}
+
+.card:hover::before {
+  opacity: 0.2;
+  transform: rotate(20deg);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-bottom: 1rem;
+  color: var(--cor-primaria);
+}
+
+/* ---------- RODAPÉ ---------- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--brand-color);
+  color: var(--cor-branco);
+  margin-top: 3rem;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+}
+
+
+/* (Login/Cadastro) */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
   font-family: "Poppins", sans-serif;
   color: var(--cor-base);
 }
@@ -119,35 +616,50 @@ button {
 }
 
 button:hover {
-  transform: scale(
-    0.95
-  ); /* Efeito de diminuir o botão quando passar o mouse, feito com tranform para ficar mais facil de animar depois. */
+  transform: scale(0.95);
+  /* Efeito de diminuir o botão quando passar o mouse, feito com tranform para ficar mais facil de animar depois. */
   background-color: #a5361d;
 }
 
 #RegistrarBtn,
 #LoginBtn {
-  font-size: 10pt; /* Tamanho da fonte */
-  text-decoration: underline; /* Sublinha o texto */
-  cursor: pointer; /* Muda o cursor para indicar que é clicavel */
+  font-size: 10pt;
+  /* Tamanho da fonte */
+  text-decoration: underline;
+  /* Sublinha o texto */
+  cursor: pointer;
+  /* Muda o cursor para indicar que é clicavel */
 }
 
 label {
-  font-size: 0.85rem; /* Tamanho da fonte em rem para ajudar na responsividade */
-  font-weight: 700; /* Grossura da fonte */
+  font-size: 0.85rem;
+  /* Tamanho da fonte em rem para ajudar na responsividade */
+  font-weight: 700;
+  /* Grossura da fonte */
 }
 
 .foto {
   /* Onde vai ficar guardada as duas imagens que aparecem acima da tela e indo para direita e esquerda */
-  will-change: auto; /* Para melhorar a performance da animação */
-  transition: all 0.8s ease-in-out; /* Transição suave */
-  position: fixed; /* Fixa a imagem na tela */
-  z-index: 5; /* Fica na frente de tudo */
-  width: 50vw; /* Ocupa metade da tela */
-  height: 100vh; /* Pegar toda tela de cima a baixo */
-  right: 0; /* Fica do lado direito ! Precisa ter para que eu possa animar suavemnete com js ! */
-  background-image: url(Imgs/fundo.png); /* Imagem de fundo */
-  background-position: center; /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Não repete a imagem */
-  background-size: cover; /* Cobre todo o container */
+  will-change: auto;
+  /* Para melhorar a performance da animação */
+  transition: all 0.8s ease-in-out;
+  /* Transição suave */
+  position: fixed;
+  /* Fixa a imagem na tela */
+  z-index: 5;
+  /* Fica na frente de tudo */
+  width: 50vw;
+  /* Ocupa metade da tela */
+  height: 100vh;
+  /* Pegar toda tela de cima a baixo */
+  right: 0;
+  /* Fica do lado direito ! Precisa ter para que eu possa animar suavemnete com js ! */
+  background-image: url(Imgs/fundo.png);
+  /* Imagem de fundo */
+  background-position: center;
+  /* Centraliza a imagem */
+  background-repeat: no-repeat;
+  /* Não repete a imagem */
+  background-size: cover;
+  /* Cobre todo o container */
 }
